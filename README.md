@@ -1,5 +1,7 @@
 # ChinesePenCalligraphyPaper
 Printable practice paper for Chinese Pen Calligraphy. 硬笔书法练习纸
+## Command
+`latexmk -pdf main.tex`
 ## Options
 - GridSize: the size of each character
 - DisplH / DisplV: displacement between characters
