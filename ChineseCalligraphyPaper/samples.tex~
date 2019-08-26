@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{calc}
+\usepackage{geometry}
+\geometry{letterpaper, hmargin=1cm, vmargin=1cm}
+
+
+\pagestyle{empty}
+
+\newlength{\DisplV}
+\newlength{\DisplH}
+\newlength{\GridSize}
+
+\newcommand{\GridVanilla}[2]{
+  \begin{scope}[xshift=#1*(\GridSize + \DisplH), yshift=#2*(\GridSize + \DisplV)]
+  \draw [black!90] (0*\GridSize,0*\GridSize) rectangle ++(1*\GridSize,1*\GridSize);
+  \end{scope}
+}
+\newcommand{\GridTianzi}[2]{
+  \begin{scope}[xshift=#1*(\GridSize + \DisplH), yshift=#2*(\GridSize + \DisplV)]
+  \draw [black!90] (0*\GridSize,0*\GridSize) rectangle ++(1*\GridSize,1*\GridSize);
+  \draw [black!30] (0*\GridSize,0.5*\GridSize) -- (1*\GridSize,0.5*\GridSize);
+  \draw [black!30] (0.5*\GridSize,0*\GridSize) -- (0.5*\GridSize,1*\GridSize);
+  \end{scope}
+}
+\newcommand{\GridMizi}[2]{
+  \begin{scope}[xshift=#1*(\GridSize + \DisplH), yshift=#2*(\GridSize + \DisplV)]
+  \draw [black!90] (0*\GridSize,0*\GridSize) rectangle ++(1*\GridSize,1*\GridSize);
+  \draw [black!30] (0*\GridSize,0*\GridSize) -- (1*\GridSize,1*\GridSize);
+  \draw [black!30] (0*\GridSize,1*\GridSize) -- (1*\GridSize,0*\GridSize);
+  \draw [black!30] (0*\GridSize,0.5*\GridSize) -- (1*\GridSize,0.5*\GridSize);
+  \draw [black!30] (0.5*\GridSize,0*\GridSize) -- (0.5*\GridSize,1*\GridSize);
+  \end{scope}
+}
+\newcommand{\GridHuigong}[2]{
+  \begin{scope}[xshift=#1*(\GridSize + \DisplH), yshift=#2*(\GridSize + \DisplV)]
+  \draw [black!90] (0*\GridSize,0*\GridSize) rectangle ++(1*\GridSize,1*\GridSize);
+  \draw [black!30] (0.265*\GridSize,0.115*\GridSize) rectangle ++(0.47*\GridSize,0.76*\GridSize);
+  \end{scope}
+}
+\newcommand{\GridHuigongFilled}[2]{
+  \begin{scope}[xshift=#1*(\GridSize + \DisplH), yshift=#2*(\GridSize + \DisplV)]
+  \draw [black!90] (0*\GridSize,0*\GridSize) rectangle ++(1*\GridSize,1*\GridSize);
+  \draw [draw=black!10, fill=black!10] (0.265*\GridSize,0.115*\GridSize) rectangle ++(0.47*\GridSize,0.76*\GridSize);
+  \end{scope}
+}
+
+% Setting Grid Size, Vertical/Horizontal Displacement between grids
+\setlength{\DisplH}{2mm}
+\setlength{\DisplV}{0mm}
+\setlength{\GridSize}{15mm}
+\newcommand{\myGrid}{\GridHuigong}
+% Setting Grid type
+\def\numH{\the\numexpr \textwidth / (\GridSize + \DisplH) - 2\relax} % numH
+\def\numV{\the\numexpr \textheight / (\GridSize + \DisplV) - 2\relax} % numH
+
+\begin{document}
+\vspace*{\fill}
+\begin{center}
+  \begin{tikzpicture}
+    \foreach \i in {0,...,\numH}
+    \foreach \j in {0,...,\numV}{
+    \myGrid{\i}{\j}
+        }
+  \end{tikzpicture}
+\end{center}
+\vspace*{\fill}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
