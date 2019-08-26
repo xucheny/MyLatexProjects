@@ -47,10 +47,10 @@
 }
 
 % Setting Grid Size, Vertical/Horizontal Displacement between grids
-\setlength{\DisplH}{0mm}
+\setlength{\DisplH}{2mm}
 \setlength{\DisplV}{0mm}
-\setlength{\GridSize}{13mm}
-\newcommand{\myGrid}{\GridMizi}
+\setlength{\GridSize}{15mm}
+\newcommand{\myGrid}{\GridHuigong}
 % Setting Grid type
 \def\numH{\the\numexpr \textwidth / (\GridSize + \DisplH) - 2\relax} % numH
 \def\numV{\the\numexpr \textheight / (\GridSize + \DisplV) - 2\relax} % numH
@@ -59,10 +59,8 @@
 \vspace*{\fill}
 \begin{center}
   \begin{tikzpicture}
-    %\foreach \i in {0,...,\numH}
-    \foreach \i in {0,...,14}
-    %\foreach \j in {0,...,\numV}{
-    \foreach \j in {0,...,19}{
+    \foreach \i in {0,...,\numH}
+    \foreach \j in {0,...,\numV}{
     \myGrid{\i}{\j}
         }
   \end{tikzpicture}
