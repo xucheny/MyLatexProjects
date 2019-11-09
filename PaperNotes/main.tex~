@@ -2,8 +2,7 @@
 \usepackage{tikz}
 \usepackage{pgf}
 \usepackage{calc}
-\usepackage{geometry}
-\geometry{letterpaper, hmargin=1cm, vmargin=1cm}
+\usepackage[landscape, twocolumns]{geometry}
 
 
 \pagestyle{empty}
@@ -47,10 +46,10 @@
 }
 
 % Setting Grid Size, Vertical/Horizontal Displacement between grids
-\setlength{\DisplH}{2mm}
+\setlength{\DisplH}{0mm}
 \setlength{\DisplV}{0mm}
-\setlength{\GridSize}{15mm}
-\newcommand{\myGrid}{\GridHuigong}
+\setlength{\GridSize}{13mm}
+\newcommand{\myGrid}{\GridMizi}
 % Setting Grid type
 \def\numH{\the\numexpr \textwidth / (\GridSize + \DisplH) - 2\relax} % numH
 \def\numV{\the\numexpr \textheight / (\GridSize + \DisplV) - 2\relax} % numH
@@ -59,8 +58,10 @@
 \vspace*{\fill}
 \begin{center}
   \begin{tikzpicture}
-    \foreach \i in {0,...,\numH}
-    \foreach \j in {0,...,\numV}{
+    %\foreach \i in {0,...,\numH}
+    \foreach \i in {0,...,14}
+    %\foreach \j in {0,...,\numV}{
+    \foreach \j in {0,...,19}{
     \myGrid{\i}{\j}
         }
   \end{tikzpicture}
